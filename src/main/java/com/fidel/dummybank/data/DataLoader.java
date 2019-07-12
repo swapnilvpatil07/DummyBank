@@ -20,7 +20,9 @@ import com.fidel.dummybank.model.BranchInfo;
 import com.fidel.dummybank.model.CardInfo;
 import com.fidel.dummybank.model.Credentials;
 import com.fidel.dummybank.model.CustomerInfo;
+import com.fidel.dummybank.model.MerchantInfo;
 import com.fidel.dummybank.repository.CustomerRepository;
+import com.fidel.dummybank.repository.MerchantRepository;
 import com.github.javafaker.Faker;
 
 /**
@@ -36,9 +38,11 @@ public class DataLoader {
 	@Autowired
 	private CustomerRepository customerRepository;
 
+	@Autowired
+	private MerchantRepository merchantRepository;
+
 	public DataLoader() {
 		faker = new Faker(Locale.getDefault());
-
 	}
 
 	@PostConstruct
@@ -48,6 +52,7 @@ public class DataLoader {
 		BranchInfo branchInfo;
 		AccountInfo accountInfo;
 		CardInfo cardInfo;
+		MerchantInfo merchantInfo = new MerchantInfo();
 
 		for (int i = 0; i < 10; i++) {
 			customerInfo = new CustomerInfo();
@@ -82,6 +87,8 @@ public class DataLoader {
 			customerInfo.setAddress(faker.streetAddress(true));
 			customerInfo.setCustCntNo(faker.numerify("9198########"));
 			customerInfo.setCustName(faker.firstName() + " " + faker.lastName());
+			customerInfo.setCustEmail(
+					faker.bothify(faker.firstName() + faker.lastName().substring(0, 2) + "??##@gamil.com"));
 
 			credentials.setTransPin(1234);
 			credentials.setTransPassword("123456");
@@ -100,6 +107,9 @@ public class DataLoader {
 
 			customerRepository.save(customerInfo);
 		}
+
+		merchantInfo.setmName("PayTm");
+		merchantRepository.save(merchantInfo);
 	}
 
 	@PreDestroy

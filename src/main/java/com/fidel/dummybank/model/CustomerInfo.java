@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Email;
 
 /**
  * @author Swapnil
@@ -26,6 +27,9 @@ public class CustomerInfo {
 	private String custName;
 	private String address;
 	private String custCntNo;
+
+	@Email
+	private String custEmail;
 
 	@OneToOne(mappedBy = "customerInfo", cascade = CascadeType.ALL)
 	private Credentials credentials;
@@ -149,6 +153,20 @@ public class CustomerInfo {
 	 */
 	public void setCardInfos(List<CardInfo> cardInfos) {
 		this.cardInfos = cardInfos;
+	}
+
+	/**
+	 * @return the custEmail
+	 */
+	public String getCustEmail() {
+		return custEmail;
+	}
+
+	/**
+	 * @param custEmail the custEmail to set
+	 */
+	public void setCustEmail(String custEmail) {
+		this.custEmail = custEmail;
 	}
 
 }
