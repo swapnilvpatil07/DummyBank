@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Random;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +44,6 @@ public class DataLoader {
 		faker = new Faker(Locale.getDefault());
 	}
 
-	@PostConstruct
 	private void loadCustomerData() {
 		CustomerInfo customerInfo;
 		Credentials credentials;
@@ -114,7 +112,7 @@ public class DataLoader {
 
 	@PreDestroy
 	private void removeCustomerData() {
-		customerRepository.deleteAll();
+		// customerRepository.deleteAll();
 	}
 
 }

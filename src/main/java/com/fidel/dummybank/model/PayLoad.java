@@ -12,6 +12,7 @@ public class PayLoad {
 	private Integer ordId;
 	private Integer cardId;
 	private Integer cvvNo;
+	private String mobNo;
 	private String hash;
 
 	public Integer getmId() {
@@ -58,6 +59,20 @@ public class PayLoad {
 	 */
 	public void setHash(String hash) {
 		this.hash = hash;
+	}
+
+	/**
+	 * @return the mobNo
+	 */
+	public String getMobNo() {
+		return mobNo;
+	}
+
+	/**
+	 * @param mobNo the mobNo to set
+	 */
+	public void setMobNo(String mobNo) {
+		this.mobNo = mobNo;
 	}
 
 	@Override

@@ -13,21 +13,79 @@
 </head>
 <body>
 	<div id="mydiv">
-		<div class="header"  style="width: inherit; display: inline;">
-			<div style="float: left; width: auto;">
-			verified by
+		<div class="header" style="width: inherit; display: inline;">
+			<div style="float: left; width: auto;"><img src="/img/verified-by-visa.png" height="40px" width="105"></div>
+			<div style="float: right; width: auto;"><img src="/img/fid-bnk-1.png" height="40px" width="105"></div>
+			<br> 
+			<br>
+			<b style="color: red;"> Enter your OTP</b><br>
+			<div style="text-align: left;">
+				<span style="font-size: 15px;">Please enter your OTP in the
+					space provided below, to confirm your identity for this purchase.
+					This information will not be shared with the merchant.</span>
 			</div>
-			<div style="float: right; width: auto;">
-			bank
-			</div>
+
+			<span
+				style="font-size: 10px; align-items: center; color: #33adff; margin-bottom: 5px;">Incase
+				the mobile no. reflected below is not correct, kindly click on
+				refresh button </span>
+			<form action="">
+				<table class="tbl-pay">
+					<tr>
+						<td class="txt-right">Mobile No</td>
+						<td class="txt-left">X6XXXX4XX4</td>
+					</tr>
+					<tr>
+						<td class="txt-right">Merchant Name</td>
+						<td class="txt-left">PAYTM</td>
+					</tr>
+					<tr>
+						<td class="txt-right">Date</td>
+						<td class="txt-left">Jul 15, 2019</td>
+					</tr>
+					<tr>
+						<td class="txt-right">Total Charge</td>
+						<td class="txt-left">Rs 82990.00</td>
+					</tr>
+					<tr>
+						<td class="txt-right">Card Number</td>
+						<td class="txt-left">XXXX XXXX XXXX 0226</td>
+					</tr>
+					<tr>
+						<td class="txt-right">Personal Message</td>
+						<td class="txt-left" style="color: red;">3D Secure Authentication*</td>
+					</tr>
+					<tr>
+						<td class="txt-right">Name</td>
+						<td class="txt-left">SWAPNIL VASUDEV PATIL</td>
+					</tr>
+					<tr>
+						<td class="txt-right">OTP</td>
+						<td class="txt-left"><input type="text"
+							style="height: 20px; width: 60px;" max="6" /></td>
+					</tr>
+					<tr>
+						<td class="txt-right"></td>
+						<td class="txt-left">
+						<a href="#" style="font-size: 12px;">Resend OTP</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="txt-right"></td>
+						<td class="txt-left"><input type="submit" value="Submit" /><span
+							style="margin-right: 50px;"></span><input type="reset"
+							value="Reset" /></td>
+					</tr>
+				</table>
+			</form>
 		</div>
 		<!-- <div >
 		Text
 		</div> -->
 	</div>
-	
-	
-	
+
+
+
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

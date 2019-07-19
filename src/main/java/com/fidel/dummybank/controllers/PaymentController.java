@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.fidel.dummybank.model.Credentials;
+import com.fidel.dummybank.model.CardInfo;
+import com.fidel.dummybank.model.CustomerInfo;
 import com.fidel.dummybank.model.PayLoad;
 import com.fidel.dummybank.repository.CredentialsRepository;
+import com.fidel.dummybank.repository.CustomerRepository;
 
 /**
  * @author Swapnil
@@ -26,15 +28,32 @@ public class PaymentController {
 	@Autowired
 	private CredentialsRepository credentialsRepository;
 
+	@Autowired
+	private CustomerRepository customerRepository;
+
 	@PostMapping(path = "/charge")
 	public String charge(@ModelAttribute("pay-load") PayLoad payLoad, Model model) {
-		Credentials creds = credentialsRepository.findCredentialsById(1);
+		boolean cardFound = false;
+		CustomerInfo custDetails = customerRepository.findUserByMobNo(payLoad.getMobNo());
 
 		System.out.println(payLoad.toString());
 
-		if (creds == null)
+		if (custDetails == null)
 			return "init_credentials";
 
+		for (CardInfo card : custDetails.getCardInfos()) {
+			if (payLoad.getCardId() == card.getCardId()) {
+				if (payLoad.getCvvNo() == card.getCvv()) {
+					cardFound = true;
+				}
+			}
+		}
+
+		model.addAttribute("trans-details", custDetails);
+
+		if (!cardFound) { 
+			return "error";
+		}
 		return "confirm";
 	}
 

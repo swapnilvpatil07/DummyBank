@@ -17,4 +17,5 @@ public interface CredentialsRepository extends JpaRepository<Credentials, Intege
 
 	@Query(nativeQuery = true, value = "SELECT * FROM Credentials c WHERE c.customer_id = :cust_id")
 	Credentials findCredentialsById(@Param("cust_id") Integer custId);
+
 }
