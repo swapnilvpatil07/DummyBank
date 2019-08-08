@@ -8,77 +8,103 @@ package com.fidel.dummybank.model;
  *
  */
 public class PayLoad {
-	private Integer mId;
-	private Integer ordId;
-	private Integer cardId;
-	private Integer cvvNo;
-	private String mobNo;
-	private String hash;
 
-	public Integer getmId() {
+	private String mId;
+	private String reqType;
+	private String ssoToken;
+	private String orderId;
+	private String custId;
+	private String mobileNo;
+	private String email;
+	private String channelId;
+	private String txnAmount;
+	private String callBckUrl;
+
+	public String getmId() {
 		return mId;
 	}
 
-	public void setmId(Integer mId) {
+	public void setmId(String mId) {
 		this.mId = mId;
 	}
 
-	public Integer getOrdId() {
-		return ordId;
+	public String getReqType() {
+		return reqType;
 	}
 
-	public void setOrdId(Integer ordId) {
-		this.ordId = ordId;
+	public void setReqType(String reqType) {
+		this.reqType = reqType;
 	}
 
-	public Integer getCardId() {
-		return cardId;
+	public String getSsoToken() {
+		return ssoToken;
 	}
 
-	public void setCardId(Integer cardId) {
-		this.cardId = cardId;
+	public void setSsoToken(String ssoToken) {
+		this.ssoToken = ssoToken;
 	}
 
-	public Integer getCvvNo() {
-		return cvvNo;
+	public String getOrderId() {
+		return orderId;
 	}
 
-	public void setCvvNo(Integer cvvNo) {
-		this.cvvNo = cvvNo;
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
 
-	/**
-	 * @return the hash
-	 */
-	public String getHash() {
-		return hash;
+	public String getCustId() {
+		return custId;
 	}
 
-	/**
-	 * @param hash the hash to set
-	 */
-	public void setHash(String hash) {
-		this.hash = hash;
+	public void setCustId(String custId) {
+		this.custId = custId;
 	}
 
-	/**
-	 * @return the mobNo
-	 */
-	public String getMobNo() {
-		return mobNo;
+	public String getMobileNo() {
+		return mobileNo;
 	}
 
-	/**
-	 * @param mobNo the mobNo to set
-	 */
-	public void setMobNo(String mobNo) {
-		this.mobNo = mobNo;
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getChannelId() {
+		return channelId;
+	}
+
+	public void setChannelId(String channelId) {
+		this.channelId = channelId;
+	}
+
+	public String getTxnAmount() {
+		return txnAmount;
+	}
+
+	public void setTxnAmount(String txnAmount) {
+		this.txnAmount = txnAmount;
+	}
+
+	public String getCallBckUrl() {
+		return callBckUrl;
+	}
+
+	public void setCallBckUrl(String callBckUrl) {
+		this.callBckUrl = callBckUrl;
 	}
 
 	@Override
 	public String toString() {
-		return "PayLoad [mId=" + mId + ", ordId=" + ordId + ", cardId=" + cardId + ", cvvNo=" + cvvNo + ", hash=" + hash
-				+ "]";
+		return "mId=" + mId + "&reqType=" + reqType + "&ssoToken=" + ssoToken + "&orderId=" + orderId + "&custId="
+				+ custId + "&mobileNo=" + mobileNo + "& email=" + email + "&channelId=" + channelId + "&txnAmount="
+				+ txnAmount + "&callBckUrl=" + callBckUrl;
 	}
 
 }

@@ -19,4 +19,7 @@ public interface CustomerRepository extends JpaRepository<CustomerInfo, Integer>
 
 	@Query(nativeQuery = true, value = "SELECT * FROM customer_info c WHERE c.cust_cnt_no = :mobile_no")
 	CustomerInfo findUserByMobNo(@Param("mobile_no") String MobileNo);
+
+	@Query(nativeQuery = true, value = "SELECT * FROM customer_info c WHERE c.cust_email = :email")
+	CustomerInfo findUserByEmail(@Param("email") String email);
 }

@@ -4,8 +4,6 @@
 package com.fidel.dummybank.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -16,7 +14,7 @@ import javax.persistence.Id;
 public class MerchantInfo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	// @GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer mId;
 	private String mName;
 

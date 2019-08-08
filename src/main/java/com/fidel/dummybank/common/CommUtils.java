@@ -3,6 +3,8 @@
  */
 package com.fidel.dummybank.common;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -54,6 +56,12 @@ public class CommUtils {
 
 		String str2 = toChecksum(map2);
 		System.out.println(str2);
+	}
+
+	public static String getDateTime() {
+		LocalDateTime now = LocalDateTime.now();
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+		return now.format(format);
 	}
 
 }

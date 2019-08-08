@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Random;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,7 @@ public class DataLoader {
 		faker = new Faker(Locale.getDefault());
 	}
 
+	@PostConstruct
 	private void loadCustomerData() {
 		CustomerInfo customerInfo;
 		Credentials credentials;
@@ -52,7 +54,7 @@ public class DataLoader {
 		CardInfo cardInfo;
 		MerchantInfo merchantInfo = new MerchantInfo();
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 1; i < 10; i++) {
 			customerInfo = new CustomerInfo();
 			credentials = new Credentials();
 			branchInfo = new BranchInfo();
@@ -83,11 +85,9 @@ public class DataLoader {
 
 			// customerInfo.setCustId(fake.numerify("540" + i));
 			customerInfo.setAddress(faker.streetAddress(true));
-			customerInfo.setCustCntNo(faker.numerify("9198########"));
+			customerInfo.setCustCntNo("869848430" + i);
 			customerInfo.setCustName(faker.firstName() + " " + faker.lastName());
-			customerInfo.setCustEmail(
-					faker.bothify(faker.firstName() + faker.lastName().substring(0, 2) + "??##@gamil.com"));
-
+			customerInfo.setCustEmail("user" + i + "@gmail.com");
 			credentials.setTransPin(1234);
 			credentials.setTransPassword("123456");
 
@@ -106,13 +106,15 @@ public class DataLoader {
 			customerRepository.save(customerInfo);
 		}
 
-		merchantInfo.setmName("PayTm");
+		merchantInfo.setmName("Fideltech Pvt. Ltd. (Web Wallet)");
+		merchantInfo.setmId(42);
 		merchantRepository.save(merchantInfo);
 	}
 
 	@PreDestroy
 	private void removeCustomerData() {
-		// customerRepository.deleteAll();
+		customerRepository.deleteAll();
+		merchantRepository.deleteAll();
 	}
 
 }
