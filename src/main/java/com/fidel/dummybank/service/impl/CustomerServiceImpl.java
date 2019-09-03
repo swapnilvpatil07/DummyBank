@@ -36,8 +36,10 @@ public class CustomerServiceImpl implements CustomerService {
 		CustomerInfo custDetailsByMob = customerRepository.findUserByMobNo(payLoad.getMobileNo());
 		CustomerInfo custDetailsByEmail = customerRepository.findUserByEmail(payLoad.getEmail());
 
-		if (custDetailsByMob.getCustId() == custDetailsByEmail.getCustId()) {
-			return custDetailsByEmail.getCustId().toString();
+		if (custDetailsByMob != null && custDetailsByEmail != null) {
+			if (custDetailsByMob.getCustId() == custDetailsByEmail.getCustId()) {
+				return custDetailsByEmail.getCustId().toString();
+			}
 		}
 		return StringUtils.EMPTY;
 	}

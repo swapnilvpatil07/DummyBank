@@ -4,7 +4,6 @@
 package com.fidel.dummybank.data;
 
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.Random;
 
 import javax.annotation.PostConstruct;
@@ -42,7 +41,7 @@ public class DataLoader {
 	private MerchantRepository merchantRepository;
 
 	public DataLoader() {
-		faker = new Faker(Locale.getDefault());
+		faker = new Faker();
 	}
 
 	@PostConstruct
@@ -53,6 +52,8 @@ public class DataLoader {
 		AccountInfo accountInfo;
 		CardInfo cardInfo;
 		MerchantInfo merchantInfo = new MerchantInfo();
+
+		removeCustomerData();
 
 		for (int i = 1; i < 10; i++) {
 			customerInfo = new CustomerInfo();
@@ -85,11 +86,18 @@ public class DataLoader {
 
 			// customerInfo.setCustId(fake.numerify("540" + i));
 			customerInfo.setAddress(faker.streetAddress(true));
-			customerInfo.setCustCntNo("869848430" + i);
-			customerInfo.setCustName(faker.firstName() + " " + faker.lastName());
-			customerInfo.setCustEmail("user" + i + "@gmail.com");
 			credentials.setTransPin(1234);
 			credentials.setTransPassword("123456");
+
+			if (i == 1) {
+				customerInfo.setCustCntNo("7709966240");
+				customerInfo.setCustName("Prachi" + " Kulkarni");
+				customerInfo.setCustEmail("Prachi.Kulkarni@fideltech.com");
+			} else {
+				customerInfo.setCustName(faker.firstName() + " " + faker.lastName());
+				customerInfo.setCustCntNo("869848430" + i);
+				customerInfo.setCustEmail("user" + i + "@fideltech.com");
+			}
 
 			credentials.setCustomerInfo(customerInfo);
 			customerInfo.setCredentials(credentials);

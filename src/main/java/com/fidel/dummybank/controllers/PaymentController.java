@@ -161,8 +161,11 @@ public class PaymentController {
 		model.addAttribute("message", message);
 		model.addAttribute("payload", payLoad);
 
-		return "redirect:http://localhost:8084/wallet/txnStatus?status=" + status + "&message=" + message + "&"
+		return "redirect:https://localhost:8084/wallet/txnStatus?status=" + status + "&message=" + message + "&"
 				+ payLoad.toString();
+		// return "redirect:http://localhost:8084/wallet/txnStatus?status=" + status +
+		// "&message=" + message + "&"
+		// + payLoad.toString();
 	}
 
 }
