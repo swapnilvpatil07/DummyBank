@@ -16,8 +16,8 @@ import com.twilio.type.PhoneNumber;
 @Service
 public class SmsSenderImpl implements SmsSender {
 
-	private static final String AUTH_TOKEN = "f259a0f4fe30e82935e62839f38ecdf4";
-	private static final String ACCOUNT_SID = "ACb46c18fbb4534db509b1595a960abb84";
+	private static final String AUTH_TOKEN = "";
+	private static final String ACCOUNT_SID = "";
 	private static final String TWILIO_NUMBER = "+12055764162";
 	private Integer otp;
 	private String sms;
